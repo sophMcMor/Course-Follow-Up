@@ -16,7 +16,14 @@ app.use(bodyParser.json());
 require('dotenv').config({ path: './claves_en_des.env' });
 
 // Accede a la clave desde las variables de entorno
-const claveAleatoria = process.env.CLAVE_ALEATORIA;
+let claveAleatoria = process.env.CLAVE_ALEATORIA;
+
+if (!claveAleatoria) {
+  console.log('Advertencia: CLAVE_ALEATORIA no está definida en las variables de entorno. Usando clave alternativa.');
+  claveAleatoria = '9e!yECV5Rbij93ub'; // Define aquí tu clave alternativa
+}
+
+
 const correoMap = {}; // Diccionario para la gestión de correos
 
 // Ahora puedes utilizar la clave en tu aplicación
