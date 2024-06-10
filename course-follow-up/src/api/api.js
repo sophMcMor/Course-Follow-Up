@@ -14,7 +14,8 @@ const bodyParser = require('body-parser');
 // app.use(bodyParser.json());
 
 // Middleware cambios railway
-app.use(cors({ origin: process.env.FRONTEND_URL || 'http://localhost:5173' }));
+app.use(cors({ origin: process.env.PORT || 'http://localhost:5173' }));
+console.log("Puerto diferente a 5173: ", port);
 app.use(express.json());
 app.use(bodyParser.json());
 
