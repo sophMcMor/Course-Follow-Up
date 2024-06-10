@@ -2,13 +2,19 @@ const express = require('express');
 const cors = require('cors');
 const CryptoJS = require('crypto-js');
 const db = require('./db');
+const path = require('path');//Cambios agregados railway
 const app = express();
 const port = process.env.PORT || 3001;
 
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 
-app.use(cors({ origin: 'http://localhost:5173' }));
+// app.use(cors({ origin: 'http://localhost:5173' }));
+// app.use(express.json());
+// app.use(bodyParser.json());
+
+// Middleware cambios railway
+app.use(cors({ origin: process.env.FRONTEND_URL || 'http://localhost:5173' }));
 app.use(express.json());
 app.use(bodyParser.json());
 
@@ -314,7 +320,7 @@ app.get('/cursosXFecha', async (req, res) => {
 app.get('/gruposXFecha', async (req, res) => {
   try {
     const { fechaInicio, fechaFinal, grupo_id, idcurso } = req.query;
-    console.log('REVISAR AQUI 333: ', idcurso);
+    //console.log('REVISAR AQUI 333: ', idcurso);
     const [cursos] = await db.query(`
       SELECT gxc.idgrupoXcurso ,g.numero AS grupoNumero
       FROM grupoxcurso gxc
@@ -462,6 +468,19 @@ app.get('/validarDistanciaUnaSemana/:idGrupo/:fechaInicio', async (req, res) => 
     console.error('Error al obtener distancia de 1 semana:', error);
     res.status(500).json({ error: 'Error al obtener distancia de 1 semana' });
   }
+});
+
+// Middleware para servir archivos estáticos de React
+app.use(express.static(path.join(__dirname, '../../dist')));
+
+// Ruta catch-all para servir el index.html de React
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../dist', 'index.html'));
+});
+
+// Middleware para manejar rutas no encontradas
+app.use((req, res, next) => {
+  res.status(404).send("Ruta no encontrada");
 });
 
 
