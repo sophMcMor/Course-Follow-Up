@@ -1,0 +1,120 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+body {
+  background: linear-gradient(to bottom, #007bff, #ff8c00);
+  margin: 0;
+}
+
+.btn-primary {
+background-color: #092D4E; /* Color de fondo del botón primario */
+color: #ffffff; /* Color de texto del botón primario */
+border: none; /* Eliminar el borde del botón primario */
+padding: 10px 20px; /* Espaciado interno del botón primario */
+border-radius: 20px; /* Radio de borde del botón primario */
+margin-bottom: 20px;
+}
+
+.btn-primary:hover {
+background-color: #0056b3; /* Cambio de color de fondo al pasar el cursor sobre el botón primario */
+}
+
+.btn-back {
+background-color: #006769       ; 
+color: #ffffff; 
+border: none; 
+padding: 10px 20px; 
+border-radius: 20px; 
+margin-bottom: 20px;
+}
+
+.btn-back:hover {
+background-color: #9DDE8B ; 
+}
+
+.btn-danger {
+background-color: #C40C0C; 
+color: #ffffff; 
+border: none; 
+padding: 10px 20px; 
+border-radius: 20px; 
+margin-bottom: 20px;
+}
+
+.btn-danger:hover {
+background-color: #e39c8d  ; 
+}
+
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.left, .right {
+  flex: 1;
+  margin: 40px;
+}
+
+.left {
+  border-right: 1px solid #ddd;
+  padding-right: 60px;
+}
+
+.right {
+  color: #ffffff;
+}
+
+.right h2{
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.user-list {
+  list-style-type: none;
+  width: 500px;
+  height: 320px; /* Establece la altura que necesites */
+  overflow-y: scroll; /* Habilita el scroll vertical */
+}
+
+
+.user-item {
+  border: 5px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  color:#ffffff;
+  text-align: left;
+}
+
+.actions div {
+  margin-bottom: 10px;
+  text-align: left;
+  color: #ffffff;
+}
+
+.actions div input{
+  position: absolute;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+
+.actions div label{
+  margin-left: 30px;
+}
+
+.actions div button{
+  margin-top: 20px;
+}
+
+/* Para hacer más grande los checkbox */
+.custom-checkbox{ 
+  height: 20px;
+  width: 20px;
+}
