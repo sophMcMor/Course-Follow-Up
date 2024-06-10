@@ -5,7 +5,9 @@
   "main": "api.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/api/api.js"
+    "start": "node src/api/api.js",
+    "dev": "react-scripts start",
+    "railway": "concurrently \"npm:start\" \"npm run dev\""
   },
   "keywords": [],
   "author": "",
