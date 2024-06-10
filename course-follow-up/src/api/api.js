@@ -466,6 +466,6 @@ app.get('/validarDistanciaUnaSemana/:idGrupo/:fechaInicio', async (req, res) => 
 
 
 // Iniciar el servidor
-app.listen(port, () => {
+app.listen(port,'0.0.0.0', () => {
   console.log(`El servidor está corriendo en http://localhost:${port}`);
 });
