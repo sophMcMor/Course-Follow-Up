@@ -282,39 +282,18 @@ app.put('/intercambiarCursos', async (req, res) => {
   }
 });
 
-/*
 // Ruta para obtener cursos filtrados por fecha
 app.get('/cursosXFecha', async (req, res) => {
   try {
     const { fechaInicio, fechaFinal } = req.query;
 
-    const [cursos] = await db.query(`
-      SELECT g.numero AS grupoNumero, g.horario AS grupoHorario, c.idcurso, c.nombre AS cursoNombre, gxc.fechaInicio, gxc.fechaFinal, gxc.profesor, gxc.horario AS cursoHorario
+    const [cursos] = await db.query(
+     ` SELECT gxc.idgrupoXcurso, g.idgrupo ,g.numero AS grupoNumero, g.horario AS grupoHorario, c.idcurso, c.nombre AS cursoNombre, gxc.fechaInicio, gxc.fechaFinal, gxc.profesor, gxc.horario AS cursoHorario, gxc.jornada as jornada
       FROM grupoxcurso gxc
       JOIN grupo g ON gxc.idgrupo = g.idgrupo
       JOIN curso c ON gxc.idcurso = c.idcurso
-      WHERE gxc.fechaInicio >= ? AND gxc.fechaFinal <= ?
-    `, [fechaInicio, fechaFinal]);
-
-    res.json(cursos);
-  } catch (error) {
-    console.error('Error al obtener cursos por fecha:', error);
-    res.status(500).json({ error: 'Error al obtener cursos por fecha' });
-  }
-});*/
-
-// Ruta para obtener cursos filtrados por fecha
-app.get('/cursosXFecha', async (req, res) => {
-  try {
-    const { fechaInicio, fechaFinal } = req.query;
-
-    const [cursos] = await db.query(`
-      SELECT gxc.idgrupoXcurso, g.idgrupo ,g.numero AS grupoNumero, g.horario AS grupoHorario, c.idcurso, c.nombre AS cursoNombre, gxc.fechaInicio, gxc.fechaFinal, gxc.profesor, gxc.horario AS cursoHorario, gxc.jornada as jornada
-      FROM grupoxcurso gxc
-      JOIN grupo g ON gxc.idgrupo = g.idgrupo
-      JOIN curso c ON gxc.idcurso = c.idcurso
-      WHERE gxc.fechaInicio >= ? AND gxc.fechaFinal <= ?
-    `, [fechaInicio, fechaFinal]);
+      WHERE gxc.fechaInicio >= ? AND gxc.fechaFinal <= ?`
+    , [fechaInicio, fechaFinal]);
 
     res.json(cursos);
   } catch (error) {
@@ -322,7 +301,6 @@ app.get('/cursosXFecha', async (req, res) => {
     res.status(500).json({ error: 'Error al obtener cursos por fecha' });
   }
 });
-
 
 // Ruta para obtener grupos filtrados por fecha
 // Para la tabla de grupos a fusionar

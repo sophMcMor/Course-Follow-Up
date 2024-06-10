@@ -140,7 +140,6 @@ const App1 = () => {
 
 
   const handleOpciones = (idgrupoXcurso, grupo_id, grupoNumero, idcurso, cursoNombre, cursoSeleccionado, horario ) =>{
-    alert(idgrupoXcurso);
     navigate('/Opciones',{state:{idgrupoXcurso: idgrupoXcurso, grupo_id: grupo_id, grupoNumero: grupoNumero, idcurso: idcurso, cursoNombre: cursoNombre, fechaInicio: fechaInicio, fechaFinal: fechaFinal, 
       añoPlanificador: añoPlanificador, cursoSeleccionado: cursoSeleccionado, horario: horario}});
   }
