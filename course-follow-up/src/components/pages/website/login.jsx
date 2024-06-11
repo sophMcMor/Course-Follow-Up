@@ -24,7 +24,7 @@ function Login () {
 
     // Carga todas las actas de la BD en la lista "actas"
     useEffect(() =>{
-        axios.get('http://localhost:3001/usuarios')
+        axios.get('https://course-follow-up-production.up.railway.app/usuarios')
         .then(response =>{
             setUsuarios(response.data);
         })
@@ -41,7 +41,7 @@ function Login () {
 
     const actualizarUsuarios = () =>{
         console.log("CAMBIO CONTRASEÑA");
-        axios.get('http://localhost:3001/usuarios')
+        axios.get('https://course-follow-up-production.up.railway.app/usuarios')
         .then(response =>{
             setUsuarios(response.data);
         })
@@ -98,13 +98,13 @@ function Login () {
 
                 try {
                     // Actualizar la contraseña en la base de datos
-                    await axios.put('http://localhost:3001/usuarios/updatePassword', {
+                    await axios.put('https://course-follow-up-production.up.railway.app/usuarios/updatePassword', {
                         correo: correo,
                         nuevaContraseña: nuevaPassword
                     });
 
                     // Enviar correo con la nueva contraseña
-                    await axios.post('http://localhost:3001/sendEmail', {
+                    await axios.post('https://course-follow-up-production.up.railway.app/sendEmail', {
                       to: correo,
                       subject: '🚨 Recuperación de Contraseña 🚨',
                       body: `¡Hola! Le saluda Course Follow Up 😊\n\nSu nueva contraseña es: ${nuevaPassword}` 

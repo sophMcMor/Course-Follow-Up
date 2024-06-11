@@ -28,7 +28,7 @@ function Signup () {
 
     // Carga todas las actas de la BD en la lista "actas" 
     useEffect(() =>{
-        axios.get('http://localhost:3001/usuarios')
+        axios.get('https://course-follow-up-production.up.railway.app/usuarios')
         .then(response =>{
             setUsuarios(response.data);
         })
@@ -97,11 +97,11 @@ function Signup () {
             };
     
             try{
-                const response = await axios.post('http://localhost:3001/usuarios', datos);
+                const response = await axios.post('https://course-follow-up-production.up.railway.app/usuarios', datos);
                 console.log(response.data);
 
                 // Enviar correo de confirmacion de registro
-                await axios.post('http://localhost:3001/sendEmail', {
+                await axios.post('https://course-follow-up-production.up.railway.app/sendEmail', {
                     to: correo,
                     subject: '📝¡Bienvenido a COURSE FOLLOW UP! 📝',
                     body: `¡Hola! 😊 Su cuenta ha sido creada con éxito.\n\nSu usuario es: ${correo}\nSu contraseña es: ${psswrd}` 
