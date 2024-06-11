@@ -4,7 +4,8 @@ const CryptoJS = require('crypto-js');
 const db = require('./db');
 const path = require('path');//Cambios agregados railway
 const app = express();
-const port = process.env.PORT || 3001;
+//const port = process.env.PORT || 3001;
+const port = 6208;
 
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
@@ -14,7 +15,7 @@ const bodyParser = require('body-parser');
 // app.use(bodyParser.json());
 
 // Middleware cambios railway
-app.use(cors({ origin: process.env.PORT || 'http://localhost:5173' }));
+app.use(cors({ origin: 6208}));
 console.log("Puerto diferente a 5173: ", port);
 app.use(express.json());
 app.use(bodyParser.json());
