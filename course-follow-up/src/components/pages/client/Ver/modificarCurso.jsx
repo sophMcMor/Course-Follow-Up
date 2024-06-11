@@ -176,7 +176,7 @@ const Modificar_Curso = () => {
 const validarDistanciaCursosIguales = async () => { 
   console.log("Validación 2 meses");
   try {
-    const cumpleDistancia = await axios.get(`http://localhost:3001/distanciaCursosIguales/${cursoSeleccionado.name}/${fechaInicio}/${fechaFinal}`);
+    const cumpleDistancia = await axios.get(`https://course-follow-up-production.up.railway.app/distanciaCursosIguales/${cursoSeleccionado.name}/${fechaInicio}/${fechaFinal}`);
    //Así se debe obtener la info de la respuesta de BD cumpleDistancia.data[0][0][0].cumpleDistancia);
     // 0 =False, 1=true
  
@@ -197,7 +197,7 @@ const validarDistanciaCursosIguales = async () => {
 const validarDistanciaUnaSemana = async () => { 
   console.log("Validación 1 semana");
   try {
-    const cumpleDistancia = await axios.get(`http://localhost:3001/validarDistanciaUnaSemana/${idGrupo}/${fechaInicio}`);
+    const cumpleDistancia = await axios.get(`https://course-follow-up-production.up.railway.app/validarDistanciaUnaSemana/${idGrupo}/${fechaInicio}`);
     
     if (cumpleDistancia.data[0][0][0].cumpleDistancia==0) {
       setContinueUpdate(false); //Agregado fixing bug
@@ -264,7 +264,7 @@ const validarDistanciaUnaSemana = async () => {
   
     // Si no hay advertencias o el usuario ha confirmado continuar, continuar con la actualización
     if (continueUpdate) {
-      axios.post('http://localhost:3001/actualizarCursos', {
+      axios.post('https://course-follow-up-production.up.railway.app/actualizarCursos', {
           idGrupo: idGrupo,
           idCurso: idCurso,
           fechaInicio: fechaInicio,

@@ -25,7 +25,7 @@ function Fusionar_Grupo() {
 
     // Carga todas los grupos de la BD en la lista "grupos existentes" 
     useEffect(() =>{
-        axios.get(`http://localhost:3001/gruposXFecha?fechaInicio=${fechaInicio}&fechaFinal=${fechaFinal}&grupo_id=${grupo_id}&idcurso=${idcurso}`)
+        axios.get(`https://course-follow-up-production.up.railway.app/gruposXFecha?fechaInicio=${fechaInicio}&fechaFinal=${fechaFinal}&grupo_id=${grupo_id}&idcurso=${idcurso}`)
         .then(response =>{
             setGruposExistentes(response.data);
         })
@@ -41,7 +41,7 @@ function Fusionar_Grupo() {
 
 
     useEffect(() =>{
-        axios.get('http://localhost:3001/fusiones')
+        axios.get('https://course-follow-up-production.up.railway.app/fusiones')
         .then(response =>{
             setFusiones(response.data);
         })
@@ -84,7 +84,7 @@ function Fusionar_Grupo() {
         else {
             alert( `Fusion: ${idgrupoXcurso1} - ${idgrupoXcurso}`);
              // Enviar los datos del nuevo grupo al servidor
-             axios.post('http://localhost:3001/fusion', {idgrupoXcurso1,idgrupoXcurso })
+             axios.post('https://course-follow-up-production.up.railway.app/fusion', {idgrupoXcurso1,idgrupoXcurso })
              .then(response => {
                  const { idFusionResult } = response.data;
                  navigate('/SeleccionaAño', {});

@@ -22,7 +22,7 @@ function EditarCuenta () {
 
     // Carga el usuario que se encuentra en sesión
     useEffect(() =>{
-        axios.get(`http://localhost:3001/usuario/${idUsuario}`)
+        axios.get(`https://course-follow-up-production.up.railway.app/usuario/${idUsuario}`)
         .then(response =>{
             setUsuarios(response.data);
             setCorreo(response.data.correo);
@@ -56,7 +56,7 @@ function EditarCuenta () {
             contraseña
         };
 
-        axios.put(`http://localhost:3001/usuario/${idUsuario}`, updatedUsuario)
+        axios.put(`https://course-follow-up-production.up.railway.app/usuario/${idUsuario}`, updatedUsuario)
         .then(response => {
             console.log('Usuario actualizado', response.data);
             alert('Datos actualizados correctamente');

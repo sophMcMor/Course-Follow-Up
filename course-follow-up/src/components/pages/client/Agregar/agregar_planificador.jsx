@@ -18,7 +18,7 @@ function Agregar_Planificador() {
 
     // Carga todas los planificadores de la BD en la lista "planificadores existentes" 
     useEffect(() =>{
-        axios.get('http://localhost:3001/planificadores')
+        axios.get('https://course-follow-up-production.up.railway.app/planificadores')
         .then(response =>{
             setPlanificadoresExistentes(response.data);
         })

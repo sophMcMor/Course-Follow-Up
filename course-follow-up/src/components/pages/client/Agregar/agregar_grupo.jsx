@@ -14,7 +14,7 @@ function Agregar_Grupo() {
 
     // Carga todas los grupos de la BD en la lista "grupos existentes" 
     useEffect(() =>{
-        axios.get('http://localhost:3001/grupos')
+        axios.get('https://course-follow-up-production.up.railway.app/grupos')
         .then(response =>{
             setGruposExistentes(response.data);
         })

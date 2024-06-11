@@ -91,7 +91,7 @@ const AgregarCursosIndiv = () => {
 
   const validarDistanciaCursosIguales = async () => {
     try {
-      const cumpleDistancia = await axios.get(`http://localhost:3001/distanciaCursosIguales/${cursoSeleccionado.nombre_curso}/${fechaInicio}/${fechaFinal}`);
+      const cumpleDistancia = await axios.get(`https://course-follow-up-production.up.railway.app/distanciaCursosIguales/${cursoSeleccionado.nombre_curso}/${fechaInicio}/${fechaFinal}`);
       if (cumpleDistancia.data[0][0][0].cumpleDistancia == 0) {
         setWarningMessage('No se cumple la distancia de 2 meses entre cursos iguales.\n¿Desea continuar de todos modos?');
         setShowWarning(true);
@@ -105,7 +105,7 @@ const AgregarCursosIndiv = () => {
 
   const validarDistanciaUnaSemana = async () => {
     try {
-      const cumpleDistancia = await axios.get(`http://localhost:3001/validarDistanciaUnaSemana/${idGrupo}/${fechaInicio}`);
+      const cumpleDistancia = await axios.get(`https://course-follow-up-production.up.railway.app/validarDistanciaUnaSemana/${idGrupo}/${fechaInicio}`);
       if (cumpleDistancia.data[0][0][0].cumpleDistancia == 0) {
         setWarningMessage('No se cumple la distancia de 1 semana respecto al último curso impartido a este grupo.\n¿Desea continuar de todos modos?');
         setShowWarning(true);
@@ -149,7 +149,7 @@ const AgregarCursosIndiv = () => {
   };
 
   const actualizarCurso = () => {
-    axios.post('http://localhost:3001/actualizarCursos', {
+    axios.post('https://course-follow-up-production.up.railway.app/actualizarCursos', {
       idGrupo: idGrupo,
       idCurso: idCurso,
       fechaInicio: fechaInicio,

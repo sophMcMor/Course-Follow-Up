@@ -41,7 +41,7 @@ const Agregar_Cursos = () => {
 
   // Carga todos los cursos de la BD en la lista "cursos" 
   useEffect(() => {
-    axios.get(`http://localhost:3001/cursos/${idGrupo}`)
+    axios.get(`https://course-follow-up-production.up.railway.app/cursos/${idGrupo}`)
       .then(response => {
         console.log('cursos111: ', response.data[0]);
         setCursos(response.data[0]);

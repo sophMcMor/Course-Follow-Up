@@ -29,7 +29,7 @@ function MiCuenta () {
 
     // Carga todas las actas de la BD en la lista "actas"
     useEffect(() =>{
-        axios.get(`http://localhost:3001/usuario/${idUsuario}`)
+        axios.get(`https://course-follow-up-production.up.railway.app/usuario/${idUsuario}`)
         .then(response =>{
             setUsuarios(response.data);
 

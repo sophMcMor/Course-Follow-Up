@@ -24,7 +24,7 @@ const Intercambiar_Cursos = () => {
 
   // Carga todos los cursos de la BD en la lista "cursos" 
   useEffect(() => {
-    axios.get(`http://localhost:3001/cursosAgregados/${idGrupo}`)
+    axios.get(`https://course-follow-up-production.up.railway.app/cursosAgregados/${idGrupo}`)
       .then(response => {
         setCursos(response.data[0]);
       })
@@ -66,7 +66,7 @@ const Intercambiar_Cursos = () => {
     // Se le consulta al usuario si está seguro del cambio. En caso afirmativo, se procede a hacer el request
     // para modificar la base de datos
     if (confirm("¿Seguro que desea intercambiar los cursos seleccionados?")){
-      axios.put('http://localhost:3001/intercambiarCursos', {
+      axios.put('https://course-follow-up-production.up.railway.app/intercambiarCursos', {
           idGrupo: idGrupo,
           idCurso1: idCurso,
           idCurso2: idCursoSeleccionado,

@@ -44,8 +44,8 @@ const App1 = () => {
     const fetchData = async () => {
       try {
         const [coursesResponse, fusionesResponse] = await Promise.all([
-          axios.get(`http://localhost:3001/cursosXFecha?fechaInicio=${fechaInicio}&fechaFinal=${fechaFinal}`),
-          axios.get('http://localhost:3001/fusiones')
+          axios.get(`https://course-follow-up-production.up.railway.app/cursosXFecha?fechaInicio=${fechaInicio}&fechaFinal=${fechaFinal}`),
+          axios.get('https://course-follow-up-production.up.railway.app/fusiones')
         ]);
   
         const groupedCourses = groupCoursesByGroup(coursesResponse.data);

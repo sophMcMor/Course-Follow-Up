@@ -11,7 +11,7 @@ function Crear_Grupo() {
 
     // Carga todas los grupos de la BD en la lista "grupos existentes" 
     useEffect(() =>{
-        axios.get('http://localhost:3001/grupos')
+        axios.get('https://course-follow-up-production.up.railway.app/grupos')
         .then(response =>{
             setGruposExistentes(response.data);
         })
@@ -36,7 +36,7 @@ function Crear_Grupo() {
         else {
 
             // Enviar los datos del nuevo grupo al servidor
-            axios.post('http://localhost:3001/grupos', { numero: nuevoGrupo, horario })
+            axios.post('https://course-follow-up-production.up.railway.app/grupos', { numero: nuevoGrupo, horario })
             .then(response => {
                 //console.log('VER AQUI 1: ', response.data);
                 const { idGrupoResult } = response.data;

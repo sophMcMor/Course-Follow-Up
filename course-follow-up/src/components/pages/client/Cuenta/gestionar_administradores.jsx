@@ -13,7 +13,7 @@ function GestionarAdministradores () {
 
     // Carga todos los usuarios
     useEffect(() =>{
-        axios.get('http://localhost:3001/usuarios')
+        axios.get('https://course-follow-up-production.up.railway.app/usuarios')
         .then(response =>{
             setUsuarios(response.data);
         })
@@ -69,7 +69,7 @@ function GestionarAdministradores () {
 
         const adminValue = permisos ? 1 : 0;
         alert('IdUsuario: ', idUsuario);
-        axios.put(`http://localhost:3001/editarUsuario/${idUsuario}`, { admin: adminValue })
+        axios.put(`https://course-follow-up-production.up.railway.app/editarUsuario/${idUsuario}`, { admin: adminValue })
             .then(response => {
                 console.log('Permisos actualizados:', response.data);
                 // Aquí puedes actualizar el estado o mostrar un mensaje de éxito
