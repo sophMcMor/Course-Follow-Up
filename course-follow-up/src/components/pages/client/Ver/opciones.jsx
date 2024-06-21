@@ -33,7 +33,21 @@ function Opciones () {
     }
 
     const handleEliminar = () =>{
-        axios.delete('https://course-follow-up-production.up.railway.app/eliminarCurso');
+        axios.delete('https://course-follow-up-production.up.railway.app/eliminarCurso',{
+            idGrupo: grupo_id,
+            idCurso: idcurso,
+        })
+        .then(response => {
+            console.log('Curso eliminado correctamente:', response.data);
+            toast.success("Curso eliminado correctamente");
+            setTimeout(() => {
+              navigate('/App', { state: { fechaInicio:fechaInicio, fechaFinal:fechaFinal, añoPlanificador:añoPlanificador } });
+            }, 3000);
+          })
+          .catch(error => {
+            console.error('Error al actualizar curso:', error);
+            toast.error("Error al actualizar el curso");
+          });
     }
 
     const handleBack = () =>{
