@@ -1,5 +1,6 @@
 import Navbar from "../../shared/navbar";
 import { Link, useNavigate, useLocation} from "react-router-dom";
+import axios from 'axios';
 
 function Opciones () {
     const navigate = useNavigate();
@@ -31,6 +32,10 @@ function Opciones () {
             fechaFinal: fechaFinal, añoPlanificador: añoPlanificador}});
     }
 
+    const handleEliminar = () =>{
+        axios.delete('https://course-follow-up-production.up.railway.app/eliminarCurso');
+    }
+
     const handleBack = () =>{
         navigate('/App',{state:{fechaInicio:fechaInicio, fechaFinal:fechaFinal, añoPlanificador: añoPlanificador}});
     }
@@ -51,6 +56,9 @@ function Opciones () {
                 </div>
                 <div className="m-3">
                     <button className="btn btn-light btn-lg" style={{ width: '100%' }} onClick={handleIntercambiar}>Intercambiar Curso</button>
+                </div>
+                <div className="m-3">
+                    <button className="btn btn-light btn-lg" style={{ width: '100%' }} onClick={handleEliminar}>Eliminar Curso</button>
                 </div>
                 <div className="m-3">
                     <button className="btn btn-danger btn-lg" style={{ width: '100%' }} onClick={handleBack}>Volver</button>

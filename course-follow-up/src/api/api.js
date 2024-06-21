@@ -298,7 +298,7 @@ app.put('/intercambiarCursos', async (req, res) => {
 });
 
 // Ruta para eliminar cursos de un grupo
-app.delete('/eliminarCursos', async (req, res) => {
+app.delete('/eliminarCurso', async (req, res) => {
   try {
       const { idGrupo, idCurso } = req.body;
 
