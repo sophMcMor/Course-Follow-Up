@@ -1,5 +1,6 @@
 import Navbar from "../../shared/navbar";
 import { Link, useNavigate, useLocation} from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 
 function Opciones () {
