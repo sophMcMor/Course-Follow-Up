@@ -297,6 +297,19 @@ app.put('/intercambiarCursos', async (req, res) => {
   }
 });
 
+// Ruta para eliminar cursos de un grupo
+app.delete('/eliminarCursos', async (req, res) => {
+  try {
+      const { idGrupo, idCurso } = req.body;
+
+      const result = await db.query("DELETE FROM grupoxcurso WHERE idgrupo = ? AND idcurso = ?", [idGrupo, idCurso]);
+      res.status(201).json({ mensaje: 'Curso eliminado correctamente', resultado: result });
+  } catch (error) {
+    console.error('Error al eliminar el curso:', error);
+    res.status(500).json({ error: 'Error al eliminar el curso' });
+  }
+});
+
 // Ruta para obtener cursos filtrados por fecha
 app.get('/cursosXFecha', async (req, res) => {
   try {
@@ -304,9 +317,9 @@ app.get('/cursosXFecha', async (req, res) => {
 
     const [cursos] = await db.query(
      ` SELECT gxc.idgrupoXcurso, g.idgrupo ,g.numero AS grupoNumero, g.horario AS grupoHorario, c.idcurso, c.nombre AS cursoNombre, gxc.fechaInicio, gxc.fechaFinal, gxc.profesor, gxc.horario AS cursoHorario, gxc.jornada as jornada
-      FROM grupoxcurso gxc
-      JOIN grupo g ON gxc.idgrupo = g.idgrupo
-      JOIN curso c ON gxc.idcurso = c.idcurso
+      FROM railway.grupoxcurso gxc
+      JOIN railway.grupo g ON gxc.idgrupo = g.idgrupo
+      JOIN railway.curso c ON gxc.idcurso = c.idcurso
       WHERE gxc.fechaInicio >= ? AND gxc.fechaFinal <= ?`
     , [fechaInicio, fechaFinal]);
 
@@ -325,8 +338,8 @@ app.get('/gruposXFecha', async (req, res) => {
     //console.log('REVISAR AQUI 333: ', idcurso);
     const [cursos] = await db.query(`
       SELECT gxc.idgrupoXcurso ,g.numero AS grupoNumero
-      FROM grupoxcurso gxc
-      JOIN grupo g ON gxc.idgrupo = g.idgrupo
+      FROM railway.grupoxcurso gxc
+      JOIN railway.grupo g ON gxc.idgrupo = g.idgrupo
       WHERE gxc.fechaInicio >= ? AND gxc.fechaFinal <= ? AND gxc.idgrupo != ? AND gxc.idcurso = ?
     `, [fechaInicio, fechaFinal, grupo_id, idcurso]);
 
@@ -342,11 +355,11 @@ app.get('/gruposXFecha', async (req, res) => {
 app.get('/fusiones', async(req, res) =>{
   try{
       const [fusiones] = await db.query(`SELECT f.*, g1.numero AS numero_grupo_1, g2.numero AS numero_grupo_2
-      FROM fusion f
-      JOIN grupoxcurso gc1 ON f.idgrupoXcurso1 = gc1.idgrupoXcurso
-      JOIN grupoxcurso gc2 ON f.idgrupoXcurso2 = gc2.idgrupoXcurso
-      JOIN grupo g1 ON gc1.idgrupo = g1.idgrupo
-      JOIN grupo g2 ON gc2.idgrupo = g2.idgrupo;`);
+      FROM railway.fusion f
+      JOIN railway.grupoxcurso gc1 ON f.idgrupoXcurso1 = gc1.idgrupoXcurso
+      JOIN railway.grupoxcurso gc2 ON f.idgrupoXcurso2 = gc2.idgrupoXcurso
+      JOIN railway.grupo g1 ON gc1.idgrupo = g1.idgrupo
+      JOIN railway.grupo g2 ON gc2.idgrupo = g2.idgrupo;`);
       res.json(fusiones);
   } catch(error){
       console.error('Error al obtener fusiones:', error);
