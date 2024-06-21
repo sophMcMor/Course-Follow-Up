@@ -60,6 +60,7 @@ function Opciones () {
         <div>
     <Navbar/>
     <div className="container d-flex flex-column align-items-center justify-content-center vh-100">
+        <ToastContainer position="top-center" />
         <h1 className="mb-4">Course Follow-Up</h1>
         <div className="card m-4 text-center" style={{ width: '500px'}}>
             <div className="card-header">
@@ -74,7 +75,7 @@ function Opciones () {
                     <button className="btn btn-light btn-lg" style={{ width: '100%' }} onClick={handleIntercambiar}>Intercambiar Curso</button>
                 </div>
                 <div className="m-3">
-                    <button className="btn btn-light btn-lg" style={{ width: '100%' }} onClick={handleEliminar}>Eliminar Curso</button>
+                    <button className="btn btn-light btn-lg" style={{ width: '100%' }} onClick={handleEliminar}>Eliminar Curso1</button>
                 </div>
                 <div className="m-3">
                     <button className="btn btn-danger btn-lg" style={{ width: '100%' }} onClick={handleBack}>Volver</button>
