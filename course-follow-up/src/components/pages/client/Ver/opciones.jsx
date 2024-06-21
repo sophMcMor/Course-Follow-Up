@@ -45,8 +45,8 @@ function Opciones () {
             }, 3000);
           })
           .catch(error => {
-            console.error('Error al actualizar curso:', error);
-            toast.error("Error al actualizar el curso");
+            console.error('Error al eliminar curso:', error);
+            toast.error("Error al eliminar el curso");
           });
     }
 
