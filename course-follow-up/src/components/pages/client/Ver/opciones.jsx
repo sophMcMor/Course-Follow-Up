@@ -43,9 +43,9 @@ function Opciones () {
         .then(response => {
             console.log('Curso eliminado correctamente:', response.data);
             toast.success("Curso eliminado correctamente");
-            setTimeout(() => {
-              navigate('/App', { state: { fechaInicio:fechaInicio, fechaFinal:fechaFinal, añoPlanificador:añoPlanificador } });
-            }, 3000);
+            // setTimeout(() => {
+            //   navigate('/App', { state: { fechaInicio:fechaInicio, fechaFinal:fechaFinal, añoPlanificador:añoPlanificador } });
+            // }, 3000);
           })
           .catch(error => {
             console.error('Error al eliminar curso:', error);

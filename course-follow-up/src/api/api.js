@@ -302,7 +302,7 @@ app.delete('/eliminarCurso', async (req, res) => {
   try {
       const { idGrupo, idCurso } = req.body;
 
-      const result = await db.query(`DELETE FROM railway.grupoxcurso WHERE idgrupo = ? AND idcurso = ?`, [idGrupo, idCurso]);
+      const result = db.query(`DELETE FROM railway.grupoxcurso WHERE idgrupo = ? AND idcurso = ?`, [idGrupo, idCurso]);
 
       // Verificar si se eliminó algún registro
       if (result.affectedRows === 0) {
