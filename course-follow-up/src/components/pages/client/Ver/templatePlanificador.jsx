@@ -182,6 +182,7 @@ const App1 = () => {
                       )
                       .map((course) => (
                         <div key={course.id} style={{ backgroundColor: group.color, color: 'white', padding: '5px' }}>
+                          {console.log("Curso: ", course)}
                           <hr />
                           <button className="btn btn-light" disabled={!isAdmin} onClick={() => handleOpciones(course.idgrupoXcurso, course.grupo_id, course.idGRUPO, course.id, course.name, course, course.horario)}>Opciones</button>
                           <br />
