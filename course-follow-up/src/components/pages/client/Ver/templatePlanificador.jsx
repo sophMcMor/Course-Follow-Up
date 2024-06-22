@@ -30,7 +30,7 @@ const App1 = () => {
     const previousStyles = {
       background: document.body.style.background,
     };
-    console.log(courses)
+    
 
     // Aplica los nuevos estilos
     document.body.style.background = '#ffffff';
@@ -52,6 +52,7 @@ const App1 = () => {
         const groupedCourses = groupCoursesByGroup(coursesResponse.data);
         setCourses(groupedCourses);
         setFusiones(fusionesResponse.data);
+        console.log("courses:" + courses)
       } catch (error) {
         console.error('Error al obtener datos:', error);
       }
