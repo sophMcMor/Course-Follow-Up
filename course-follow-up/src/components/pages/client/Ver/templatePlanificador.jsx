@@ -74,7 +74,7 @@ const App1 = () => {
     const groupMap = new Map();
 
     data.forEach((course) => {
-      console.log('AQUI FRAN2: ', course.idcurso);
+      console.log('AQUI FRAN2: ', course);
       const { grupoNumero, grupoHorario } = course;
       const groupId = `#${grupoNumero}`;
 
