@@ -30,6 +30,7 @@ const App1 = () => {
     const previousStyles = {
       background: document.body.style.background,
     };
+    console.log(courses)
 
     // Aplica los nuevos estilos
     document.body.style.background = '#ffffff';
