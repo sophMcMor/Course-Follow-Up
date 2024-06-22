@@ -52,13 +52,14 @@ const App1 = () => {
         const groupedCourses = groupCoursesByGroup(coursesResponse.data);
         setCourses(groupedCourses);
         setFusiones(fusionesResponse.data);
-        console.log("courses:" + courses)
+        
       } catch (error) {
         console.error('Error al obtener datos:', error);
       }
     };
   
     fetchData();
+    console.log(courses)
   }, [fechaInicio, fechaFinal]);
 
   useEffect(() => {
