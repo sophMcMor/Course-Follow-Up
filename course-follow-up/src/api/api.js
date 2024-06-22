@@ -308,7 +308,7 @@ app.delete('/eliminarCurso', async (req, res) => {
         res.status(404).json({ error: 'Curso no encontrado en el grupo especificado' });
       }
       else{
-        res.status(201).json({ mensaje: 'Curso eliminado correctamente', resultado: result });
+        res.status(201).json({ mensaje: 'Curso eliminado correctamente desde la api', resultado: result });
       }
       
 
