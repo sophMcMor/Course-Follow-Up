@@ -21,6 +21,7 @@ function Opciones () {
     
     console.log('idgrupoXcurso ', idgrupoXcurso);
     console.log('curso id ', idcurso);
+    console.log('grupo id ', grupo_id);
 
     
     const handleIntercambiar = () => {

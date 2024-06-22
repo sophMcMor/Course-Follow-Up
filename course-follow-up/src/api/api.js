@@ -302,7 +302,7 @@ app.delete('/eliminarCurso', async (req, res) => {
   try {
       const { idGrupo, idCurso } = req.body;
 
-      const result = await db.query("DELETE FROM railway.grupoxcurso WHERE idgrupo = ? AND idcurso = ?", [idGrupo, idCurso]);
+      const result = await db.query(`DELETE FROM railway.grupoxcurso WHERE idgrupo = ? AND idcurso = ?`, [idGrupo, idCurso]);
       res.status(201).json({ mensaje: 'Curso eliminado correctamente', resultado: result });
   } catch (error) {
     console.error('Error al eliminar el curso:', error);
