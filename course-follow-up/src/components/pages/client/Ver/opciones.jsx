@@ -9,9 +9,9 @@ function Opciones () {
     const location = useLocation();
 
     const idgrupoXcurso =location?.state?.idgrupoXcurso;
-    const grupo_id = location?.state?.grupo_id;
+    const { grupo_id } = location.state;
     const grupoNumero = location?.state?.grupoNumero;
-    const idcurso = location?.state?.idcurso;
+    const { idcurso } = location.state;
     const cursoNombre = location?.state?.cursoNombre;
     const cursoSeleccionado = location?.state?.cursoSeleccionado;
     const horario = location?.state?.horario;
