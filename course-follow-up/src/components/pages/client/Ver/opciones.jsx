@@ -76,7 +76,7 @@ function Opciones () {
                     <button className="btn btn-light btn-lg" style={{ width: '100%' }} onClick={handleIntercambiar}>Intercambiar Curso</button>
                 </div>
                 <div className="m-3">
-                    <button className="btn btn-light btn-lg" style={{ width: '100%' }} onClick={handleEliminar}>Eliminar Curso1</button>
+                    <button className="btn btn-light btn-lg" style={{ width: '100%' }} onClick={handleEliminar}>Eliminar Curso</button>
                 </div>
                 <div className="m-3">
                     <button className="btn btn-danger btn-lg" style={{ width: '100%' }} onClick={handleBack}>Volver</button>
