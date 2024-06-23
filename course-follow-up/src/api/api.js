@@ -305,7 +305,7 @@ app.delete('/eliminarCurso', async (req, res) => {
       const result = db.query(`DELETE FROM railway.grupoxcurso WHERE idgrupo = ? AND idcurso = ?`, [idGrupo, idCurso]);
 
       if (result.affectedRows === 0) {
-        res.status(404).json({ error: 'Curso no encontrado en el grupo especificado' });
+        res.status(404).json({ error: 'Curso no encontrado en el grupo especificado', resultado: result });
       }
       else{
         res.status(201).json({ mensaje: 'Curso eliminado correctamente desde la api', resultado: result });
