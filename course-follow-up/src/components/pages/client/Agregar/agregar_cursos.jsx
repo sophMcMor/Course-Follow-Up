@@ -55,7 +55,7 @@ const Agregar_Cursos = () => {
 
   useEffect(() => {
     // Este se ejecuta cuando cursos cambie
-    console.log('cursos: ', cursos[0]);
+    console.log('cursos: ', cursos);
 }, [cursos]);
 
   const handleBack = () => {
