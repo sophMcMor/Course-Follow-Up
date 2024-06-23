@@ -13,7 +13,7 @@ function Opciones () {
     const grupoNumero = location?.state?.grupoNumero;
     const { idcurso } = location.state;
     const cursoNombre = location?.state?.cursoNombre;
-    const cursoSeleccionado = location?.state?.cursoSeleccionado;
+    const { cursoSeleccionado } = location.state;
     const horario = location?.state?.horario;
     const fechaInicio = location.state.fechaInicio;
     const fechaFinal = location.state.fechaFinal;
@@ -37,8 +37,8 @@ function Opciones () {
 
     const handleEliminar = () =>{
         axios.delete('https://course-follow-up-production.up.railway.app/eliminarCurso',{
-            idGrupo: grupo_id,
-            idCurso: idcurso,
+            idGrupo: cursoSeleccionado.grupo_id,
+            idCurso: cursoSeleccionado.id,
         })
         .then(response => {
             console.log('Curso eliminado correctamente:', response.data);
@@ -76,7 +76,7 @@ function Opciones () {
                     <button className="btn btn-light btn-lg" style={{ width: '100%' }} onClick={handleIntercambiar}>Intercambiar Curso</button>
                 </div>
                 <div className="m-3">
-                    <button className="btn btn-light btn-lg" style={{ width: '100%' }} onClick={handleEliminar}>Eliminar Curso1</button>
+                    <button className="btn btn-light btn-lg" style={{ width: '100%' }} onClick={handleEliminar}>Eliminar Curso</button>
                 </div>
                 <div className="m-3">
                     <button className="btn btn-danger btn-lg" style={{ width: '100%' }} onClick={handleBack}>Volver</button>
