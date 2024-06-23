@@ -95,7 +95,7 @@ const App1 = () => {
         id: course.idcurso,
         name: course.cursoNombre,
         startDate: new Date(course.fechaInicio.slice(0, course.fechaInicio.length - 1)),
-        endDate: new Date(course.fechaInicio.slice(0, course.fechaInicio.length - 1)),
+        endDate: new Date(course.fechaFinal.slice(0, course.fechaFinal.length - 1)),
         profesor: course.profesor,
         horario: course.cursoHorario,
         jornada: course.jornada,
