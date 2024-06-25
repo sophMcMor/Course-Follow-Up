@@ -36,14 +36,7 @@ function Opciones () {
     }
 
     const handleEliminar = () =>{
-        axios({
-            method: 'delete',
-            url: 'https://course-follow-up-production.up.railway.app/eliminarCurso',
-            data: {
-                idGrupo: cursoSeleccionado.grupo_id,
-                idCurso: cursoSeleccionado.id,
-            }
-        })
+        axios.delete(`https://course-follow-up-production.up.railway.app/eliminarCurso?idGrupo=${cursoSeleccionado.grupo_id}&idCurso=${cursoSeleccionado.id}`)
         .then(response => {
             console.log('Curso eliminado correctamente:', response.data);
             toast.success("Curso eliminado correctamente");
