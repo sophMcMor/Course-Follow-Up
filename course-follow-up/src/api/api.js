@@ -300,7 +300,7 @@ app.put('/intercambiarCursos', async (req, res) => {
 // Ruta para eliminar cursos de un grupo
 app.delete('/eliminarCurso', async (req, res) => {
   try {
-      const { idGrupo, idCurso } = req.body;
+      const { idGrupo, idCurso } = req.query;
 
       const result = await db.query(`DELETE FROM railway.grupoxcurso WHERE idgrupo = ? AND idcurso = ?`, [idGrupo, idCurso]);
 
