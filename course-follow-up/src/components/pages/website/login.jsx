@@ -147,7 +147,7 @@ function Login () {
                     <div className="card-body">
                         <div className="form-group">
                             <br/>
-                            <label>Dirección de correo electrónico:</label>
+                            <label>Dirección de correo electrónico1:</label>
                             <input 
                                 type="text" 
                                 className="form-control m-2" 
