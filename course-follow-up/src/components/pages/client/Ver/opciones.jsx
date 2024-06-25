@@ -36,7 +36,7 @@ function Opciones () {
     }
 
     const handleEliminar = () =>{
-        axios.delete(`https://course-follow-up-production.up.railway.app/eliminarCurso?idGrupo=$`,{
+        axios.delete(`https://course-follow-up-production.up.railway.app/eliminarCurso`,{
             params: {
                 idGrupo: cursoSeleccionado.grupo_id,
                 idCurso: cursoSeleccionado.id,
