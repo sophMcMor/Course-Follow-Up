@@ -36,13 +36,18 @@ function Opciones () {
     }
 
     const handleEliminar = () =>{
-        axios.delete(`https://course-follow-up-production.up.railway.app/eliminarCurso?idGrupo=${cursoSeleccionado.grupo_id}&idCurso=${cursoSeleccionado.id}`)
+        axios.delete(`https://course-follow-up-production.up.railway.app/eliminarCurso?idGrupo=$`,{
+            params: {
+                idGrupo: cursoSeleccionado.grupo_id,
+                idCurso: cursoSeleccionado.id,
+            }
+        })
         .then(response => {
             console.log('Curso eliminado correctamente:', response.data);
             toast.success("Curso eliminado correctamente");
-            // setTimeout(() => {
-            //   navigate('/App', { state: { fechaInicio:fechaInicio, fechaFinal:fechaFinal, añoPlanificador:añoPlanificador } });
-            // }, 3000);
+            setTimeout(() => {
+              navigate('/App', { state: { fechaInicio:fechaInicio, fechaFinal:fechaFinal, añoPlanificador:añoPlanificador } });
+            }, 3000);
           })
           .catch(error => {
             console.error('Error al eliminar curso:', error);
